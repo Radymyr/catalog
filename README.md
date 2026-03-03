@@ -6,7 +6,7 @@ The app includes category browsing, product details, favorites, cart management,
 
 ## Live Demo
 
-Set up your deployment URL after publishing to GitHub Pages and add it here.
+https://radymyr.github.io/catalog/
 
 ## Main Features
 

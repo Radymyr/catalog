@@ -1,12 +1,12 @@
-import React, { useRef, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Swiper as SwiperType } from "swiper/types";
+import React, { useRef, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper as SwiperType } from 'swiper/types';
 
-import { Card } from "../Card";
-import styles from "./Product.module.scss";
-import { ProductHeading } from "../ProductHeading";
-import { Product } from "../../types/types";
-import { BtnControls } from "../ProductHeading/ProductHeading";
+import { Card } from '../Card';
+import styles from './Product.module.scss';
+import { ProductHeading } from '../ProductHeading';
+import { Product } from '../../types/types';
+import { BtnControls } from '../ProductHeading/ProductHeading';
 
 interface Props {
   title: string;

@@ -1,21 +1,21 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState } from 'react';
 import {
   DispatchContext,
   StateContext,
-} from "../../providers/GlobalStateProvider";
-import { NoProducts } from "../../components/NoProducts";
-import styles from "./Cart.module.scss";
-import classNames from "classnames";
-import { Modal } from "../../components/Modal";
-import { AppSettingsContext } from "../../providers/AppSettingsProvider";
-import { getAssetPath } from "../../utils";
+} from '../../providers/GlobalStateProvider';
+import { NoProducts } from '../../components/NoProducts';
+import styles from './Cart.module.scss';
+import classNames from 'classnames';
+import { Modal } from '../../components/Modal';
+import { AppSettingsContext } from '../../providers/AppSettingsProvider';
+import { getAssetPath } from '../../utils';
 
 const iconPath = {
-  iconClose: getAssetPath("img/general/icons/close.svg"),
-  decrementIconDark: getAssetPath("img/general/icons/minus-white.svg"),
-  decrementIconLight: getAssetPath("img/general/icons/minus.svg"),
-  incrementIconDark: getAssetPath("img/general/icons/close-white.svg"),
-  incrementIconLight: getAssetPath("img/general/icons/close.svg"),
+  iconClose: getAssetPath('img/general/icons/close.svg'),
+  decrementIconDark: getAssetPath('img/general/icons/minus-white.svg'),
+  decrementIconLight: getAssetPath('img/general/icons/minus.svg'),
+  incrementIconDark: getAssetPath('img/general/icons/close-white.svg'),
+  incrementIconLight: getAssetPath('img/general/icons/close.svg'),
 };
 
 export const CartPage: React.FC = () => {
@@ -26,7 +26,7 @@ export const CartPage: React.FC = () => {
 
   const close = (id: number) => {
     if (cartIds.some(obj => obj.id === id)) {
-      dispatch({ type: "REMOVE_CARD", payload: id });
+      dispatch({ type: 'REMOVE_CARD', payload: id });
     }
   };
 
@@ -44,14 +44,14 @@ export const CartPage: React.FC = () => {
 
   const clearCart = () => {
     cartIds.forEach(product => {
-      dispatch({ type: "REMOVE_CARD", payload: product.id });
+      dispatch({ type: 'REMOVE_CARD', payload: product.id });
     });
     setIsCheckoutModalOpen(false);
   };
 
   return cartProducts.length !== 0 ? (
     <section className={styles.cart}>
-      <h1 className={classNames(styles.tittle, "text-h1")}>Cart</h1>
+      <h1 className={classNames(styles.tittle, 'text-h1')}>Cart</h1>
       <div className={styles.content}>
         <ul className={styles.cards}>
           {cartProducts.map(({ image, name, price, id }) => {
@@ -85,32 +85,32 @@ export const CartPage: React.FC = () => {
                     <button
                       className={styles.countButton}
                       onClick={() => {
-                        dispatch({ type: "REMOVE_ONE", payload: id });
+                        dispatch({ type: 'REMOVE_ONE', payload: id });
                       }}
                       type="button"
                     >
                       <img
                         src={
-                          theme === "light"
+                          theme === 'light'
                             ? iconPath.decrementIconLight
                             : iconPath.decrementIconDark
                         }
                         alt="decrement-icon"
                       />
                     </button>
-                    <span className={classNames(styles.count, "text-body")}>
+                    <span className={classNames(styles.count, 'text-body')}>
                       {shortProduct?.count}
                     </span>
                     <button
                       className={styles.countButton}
                       onClick={() => {
-                        dispatch({ type: "ADD_CARD", payload: id });
+                        dispatch({ type: 'ADD_CARD', payload: id });
                       }}
                       type="button"
                     >
                       <img
                         src={
-                          theme === "light"
+                          theme === 'light'
                             ? iconPath.incrementIconLight
                             : iconPath.incrementIconDark
                         }
@@ -119,7 +119,7 @@ export const CartPage: React.FC = () => {
                       />
                     </button>
                   </div>
-                  <h3 className={classNames(styles.productPrice, "text-h3")}>
+                  <h3 className={classNames(styles.productPrice, 'text-h3')}>
                     ${totalPriceForProduct}
                   </h3>
                 </div>
@@ -129,13 +129,13 @@ export const CartPage: React.FC = () => {
         </ul>
         <div className={styles.checkout}>
           <h2 className="text-h2">${totalPrice}</h2>
-          <p className={classNames(styles.cartSubtext, "text-body")}>
+          <p className={classNames(styles.cartSubtext, 'text-body')}>
             {totalItems === 0
-              ? ""
-              : `${totalItems < 2 ? "Total for " + totalItems + " item" : "Total for " + totalItems + " items"}`}
+              ? ''
+              : `${totalItems < 2 ? 'Total for ' + totalItems + ' item' : 'Total for ' + totalItems + ' items'}`}
           </p>
           <button
-            className={classNames(styles.checkoutButton, "text-button")}
+            className={classNames(styles.checkoutButton, 'text-button')}
             onClick={() => setIsCheckoutModalOpen(true)}
             type="button"
           >

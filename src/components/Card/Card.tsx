@@ -1,10 +1,10 @@
-import React from "react";
-import styles from "./Card.module.scss";
+import React from 'react';
+import styles from './Card.module.scss';
 
-import classNames from "classnames";
-import { Link } from "react-router-dom";
-import { ProductActionButtons } from "../ProductActionButtons";
-import { getAssetPath } from "../../utils";
+import classNames from 'classnames';
+import { Link } from 'react-router-dom';
+import { ProductActionButtons } from '../ProductActionButtons';
+import { getAssetPath } from '../../utils';
 
 interface Props {
   id: number;
@@ -30,7 +30,12 @@ export const Card: React.FC<Props> = ({
   return (
     <li className={styles.item}>
       <Link to={`/product/${id}`}>
-        <img className={styles.image} alt={name} src={imagePath} />
+        <img
+          className={styles.image}
+          alt={name}
+          src={imagePath}
+          loading="lazy"
+        />
       </Link>
 
       <div className={styles.wrapper}>
@@ -39,19 +44,19 @@ export const Card: React.FC<Props> = ({
         <div className={styles.characteristics}>
           <div className={styles.row}>
             <p className="text-small">Screen</p>
-            <p className={classNames(styles.value, "text-uppercase")}>
+            <p className={classNames(styles.value, 'text-uppercase')}>
               {screen}
             </p>
           </div>
           <div className={styles.row}>
             <p className="text-small">Capacity</p>
-            <p className={classNames(styles.value, "text-uppercase")}>
+            <p className={classNames(styles.value, 'text-uppercase')}>
               {capacity}
             </p>
           </div>
           <div className={styles.row}>
             <p className="text-small">RAM</p>
-            <p className={classNames(styles.value, "text-uppercase")}>{ram}</p>
+            <p className={classNames(styles.value, 'text-uppercase')}>{ram}</p>
           </div>
         </div>
         <div className={styles.action}>
